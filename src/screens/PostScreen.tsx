@@ -1,14 +1,14 @@
-import {View, Text, StyleSheet, Image, ImageBackground, Button, Alert} from "react-native";
+import {View, Text, StyleSheet, Image, Button, Alert} from "react-native";
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import {RootStackParam} from "../../App";
+import {RootStackParam} from "../components/navigation/StackNavigator";
 import React from "react";
 import {DATA} from "../data/data";
 import {IPost} from "./MainScreen";
 
 
-type Props = NativeStackScreenProps<RootStackParam, 'Post'>
+export type PostScreenProps = NativeStackScreenProps<RootStackParam, 'Post'>
 
-export const PostScreen: React.FC<Props> = ({ route ,navigation}) => {
+export const PostScreen: React.FC<PostScreenProps> = ({ route }) => {
 
     const post = DATA.find(p => p.id ===route.params.id)
 

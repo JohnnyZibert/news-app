@@ -1,9 +1,9 @@
-import {View, StyleSheet, FlatList} from "react-native";
 import React from "react";
 import { NativeStackScreenProps} from "@react-navigation/native-stack";
-import {RootStackParam} from "../../App";
+import {RootStackParam} from "../components/navigation/StackNavigator";
 import {DATA} from "../data/data";
 import { Post} from "../components/post";
+import {PostsList} from "./PostsList";
 
 export type Props = NativeStackScreenProps<RootStackParam, 'Main' | 'Post'>;
 
@@ -22,17 +22,9 @@ export const MainScreen: React.FC<Props> = ({navigation }) => {
         navigation.navigate('Post', {id: post.id, imageUrl:post.imageUrl,title: post.title, booked: post.booked})
     }
 
+
     return (
-        <View style={styles.mainContainer}>
-            <FlatList data={DATA}
-                      keyExtractor={(post) => post.id.toString()}
-                      renderItem={({item}) => <Post post={item} key={item.id} onOpen={onOpenHandler}/>}/>
-        </View>
+       <PostsList onOpen={onOpenHandler} data={DATA}/>
     )
 }
 
-const styles = StyleSheet.create({
-    mainContainer: {
-        padding: 10,
-    }
-})

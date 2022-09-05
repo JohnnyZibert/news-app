@@ -1,7 +1,7 @@
-import {View, Text, ImageBackground, StyleSheet, TouchableOpacity, ScrollView} from "react-native";
+import {View, Text, ImageBackground, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import {NativeStackScreenProps} from "@react-navigation/native-stack";
-import {RootStackParam} from "../../App";
+import {RootStackParam} from "./navigation/StackNavigator";
 import {IPost} from "../screens/MainScreen";
 
 type Props = NativeStackScreenProps<RootStackParam, 'Main' | 'Post'>;
